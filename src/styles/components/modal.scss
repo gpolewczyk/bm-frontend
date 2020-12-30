@@ -1,0 +1,25 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+
+  &__overlay {
+    background-color: #00000099;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 997;
+  }
+
+  &__body {
+    position: absolute;
+    z-index: 998;
+  }
+}

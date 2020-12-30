@@ -1,0 +1,12 @@
+.nav {
+  box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+  width: 100vw;
+
+  &__btn {
+    margin-right: 16px;
+  }
+}

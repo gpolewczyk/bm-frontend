@@ -1,0 +1,25 @@
+.btn {
+  background-color: $google-blue-400;
+  border-radius: 6px;
+  border: none;
+  box-shadow: $box-shadow;
+  color: $white;
+  font-family: 'ProductSans Bold';
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0;
+  padding: 12px 0;
+  text-transform: uppercase;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+  width: 100px;
+
+  &:disabled {
+    background-color: $google-grey-400;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $google-blue-500;
+    cursor: pointer;
+  }
+}
