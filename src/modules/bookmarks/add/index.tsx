@@ -43,12 +43,19 @@ const Add: React.FC = () => {
               <FormText
                 id="label"
                 name="label"
-                label="Label:"
+                label="Bookmark label:"
                 error={errors.label}
                 touched={touched.label}
                 type="text"
               />
-              <FormText id="url" name="url" label="Url:" error={errors.url} touched={touched.url} type="password" />
+              <FormText
+                id="url"
+                name="url"
+                label="Bookmark url:"
+                error={errors.url}
+                touched={touched.url}
+                type="text"
+              />
               <FormSubmit label="Save" disabled={status === 'loading'} />
             </div>
             <div className="form__footer">
