@@ -1,7 +1,8 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { setModalClose } from 'src/store/modal/modal.actions';
 import { createBookmarkDto } from 'src/types/dto/bookmark.dto';
+import { setModalClose } from 'src/store/modal/modal.actions';
+import { BookmarkModel } from 'src/store/bookmarks/bookmarks.interfaces';
 import apiClient from 'src/utils/api';
 
 interface Hook {
@@ -18,10 +19,14 @@ const addBookmark = async (dto: createBookmarkDto) => {
 };
 
 const useAddBookmark = (): Hook => {
+  const queryClint = useQueryClient();
   const dispatch = useDispatch();
   const mutation = useMutation(addBookmark, {
-    onSuccess: () => {
-      dispatch(setModalClose());
+    onSuccess: (response) => {
+      queryClint.setQueryData('bookmarks', (cache: BookmarkModel[]) => {
+        dispatch(setModalClose());
+        return [...cache, { ...response }];
+      });
     },
   });
 
