@@ -25,7 +25,7 @@ const Add: React.FC = () => {
   };
 
   return (
-    <div className="bookmark__add">
+    <div className="bookmark__add animate slideBottom">
       <Formik
         initialValues={{ label: '', url: '' }}
         validationSchema={validationSchema}

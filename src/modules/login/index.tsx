@@ -22,7 +22,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login animate slideBottom">
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={validationSchema}
