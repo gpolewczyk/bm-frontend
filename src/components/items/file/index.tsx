@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookmarkModel } from 'src/store/bookmarks/bookmarks.interfaces';
-import IconFile from 'src/icons/file';
+import IconFile from 'src/icons/flat-icons/file';
 
 interface ComponentProps {
   item: BookmarkModel;

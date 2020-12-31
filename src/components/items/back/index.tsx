@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookmarkModel } from 'src/store/bookmarks/bookmarks.interfaces';
-import IconBack from 'src/icons/back';
+import IconBack from 'src/icons/flat-icons/back';
 
 interface ComponentProps {
   items: BookmarkModel[];

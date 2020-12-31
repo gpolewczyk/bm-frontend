@@ -4,8 +4,8 @@ import useLogin from 'src/hooks/use-login';
 import useModal from 'src/hooks/use-modal';
 import FormSubmit from 'src/components/form/submit';
 import FormText from 'src/components/form/text';
-import IconClose from 'src/icons/close';
-import IconUser from 'src/icons/user';
+import IconClose from 'src/icons/font-awesome/close';
+import IconUser from 'src/icons/flat-icons/user';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
