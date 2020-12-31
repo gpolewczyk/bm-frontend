@@ -1,0 +1,12 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 60px);
+  width: 100vw;
+
+  svg {
+    max-height: 240px;
+    max-width: 240px;
+  }
+}

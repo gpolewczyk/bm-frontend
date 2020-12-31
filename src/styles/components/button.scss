@@ -10,7 +10,7 @@
   margin: 0;
   padding: 12px 0;
   text-transform: uppercase;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+  transition: $cubic-bezier 300ms;
   width: 100px;
 
   &:disabled {
