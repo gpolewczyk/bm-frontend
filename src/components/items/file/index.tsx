@@ -13,7 +13,7 @@ const File: React.FC<ComponentProps> = ({ item }) => {
     <div className="bookmarks__item bookmarks__file">
       <a href={url} target="_blank" rel="noreferrer">
         <IconFile />
-        {label}
+        <span className="bookmarks__label">{label}</span>
       </a>
     </div>
   );

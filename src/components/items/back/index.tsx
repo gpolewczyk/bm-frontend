@@ -19,7 +19,7 @@ const Back: React.FC<ComponentProps> = ({ items, selected, open }) => {
   return (
     <div className="bookmarks__item bookmarks__folder bookmarks__back" onClick={handleClick}>
       <IconBack />
-      ...
+      <span className="bookmarks__label">...</span>
     </div>
   );
 };

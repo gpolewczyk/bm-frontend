@@ -17,7 +17,7 @@ const Folder: React.FC<ComponentProps> = ({ item, open }) => {
   return (
     <div className="bookmarks__item bookmarks__folder" onClick={handleClick}>
       <IconFolder />
-      {label}
+      <span className="bookmarks__label">{label}</span>
     </div>
   );
 };

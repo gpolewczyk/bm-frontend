@@ -6,9 +6,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    flex-wrap: wrap;
     padding: 16px;
-    height: calc(100vh - 60px);
-    width: 100vw;
   }
 
   &__item,
@@ -33,5 +32,13 @@
       background-color: $google-grey-100;
       cursor: pointer;
     }
+  }
+
+  &__label {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80px;
   }
 }
