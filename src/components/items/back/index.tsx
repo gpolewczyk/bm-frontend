@@ -16,8 +16,16 @@ const Back: React.FC<ComponentProps> = ({ items, selected, open }) => {
     open(currentItem.parent);
   };
 
+  const handleContext = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className="bookmarks__item bookmarks__folder bookmarks__back" onClick={handleClick}>
+    <div
+      className="bookmarks__item bookmarks__folder bookmarks__back"
+      onClick={handleClick}
+      onContextMenu={handleContext}
+    >
       <IconBack />
       <span className="bookmarks__label">...</span>
     </div>
