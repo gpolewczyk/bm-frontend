@@ -8,6 +8,7 @@ import useModal from 'src/hooks/use-modal';
 import Back from 'src/components/items/back';
 import File from 'src/components/items/file';
 import Folder from 'src/components/items/folder';
+import { sessionSet } from 'src/utils/storage';
 
 interface ComponentProps {
   items: BookmarkModel[];
@@ -20,6 +21,7 @@ const List: React.FC<ComponentProps> = ({ items }) => {
 
   const selectBookmark = (id: string) => {
     dispatch(setSelectedBookmark(id));
+    sessionSet('bookmark', id);
   };
 
   const editBookmark = (id: string) => {
