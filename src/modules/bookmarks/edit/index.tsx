@@ -2,9 +2,11 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/store/store.interfaces';
+import useDeleteBookmark from 'src/hooks/use-delete-bookmark';
 import useEditBookmark from 'src/hooks/use-edit-bookmark';
 import useGetBookmark from 'src/hooks/use-get-bookmark';
 import useModal from 'src/hooks/use-modal';
+import FormDelete from 'src/components/form/delete';
 import FormSubmit from 'src/components/form/submit';
 import FormText from 'src/components/form/text';
 import IconClose from 'src/icons/font-awesome/close';
@@ -18,12 +20,17 @@ const validationSchema = Yup.object().shape({
 
 const Edit: React.FC = () => {
   const { closeModal } = useModal();
-  const { mutate, status, error } = useEditBookmark();
+  const deleteBookmark = useDeleteBookmark();
+  const editBookmark = useEditBookmark();
   const { edited } = useSelector((state: RootState) => state.bookmarks);
   const { data } = useGetBookmark(edited);
 
   const handleCloseForm = () => {
     closeModal();
+  };
+
+  const handleDelete = () => {
+    deleteBookmark.mutate({ id: edited });
   };
 
   return (
@@ -37,7 +44,7 @@ const Edit: React.FC = () => {
           url: (data?.url as string) || '',
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => mutate({ ...values })}
+        onSubmit={(values) => editBookmark.mutate({ ...values })}
       >
         {({ errors, touched }) => (
           <Form className="form">
@@ -64,10 +71,14 @@ const Edit: React.FC = () => {
                 touched={touched.url}
                 type="text"
               />
-              <FormSubmit label="Edit" disabled={status === 'loading'} />
+              <FormSubmit label="Edit" disabled={editBookmark.status === 'loading'} />
+              <FormDelete label="Delete" disabled={editBookmark.status === 'loading'} onClick={handleDelete} />
             </div>
             <div className="form__footer">
-              <div className="form__error">{error && error.response && error.response.data.message}</div>
+              <div className="form__error">
+                {deleteBookmark.error && deleteBookmark.error.response && deleteBookmark.error.response.data.message}
+                {editBookmark.error && editBookmark.error.response && editBookmark.error.response.data.message}
+              </div>
             </div>
           </Form>
         )}
